@@ -27,7 +27,25 @@ struct Day1: Challenge {
         print(increasingLines.count)
     }
     
-    func runPuzzle2() {
-        fatalError()
+    func runPuzzle2() {        
+        let windowSize = 3
+        let increasingWindows = self.input.enumerated().filter { (index, _) in
+            guard index >= windowSize else { return false }
+
+            let previousWindowIndices = (index - windowSize)     ... (index - 1)
+            let currentWindowIndices  = (index - windowSize + 1) ... index
+            
+            let previousWindow = self.input[previousWindowIndices].reduce(into: 0) { sum, value in
+                sum += Int(value)!
+            }
+            
+            let currentWindow = self.input[currentWindowIndices].reduce(into: 0) { sum, value in
+                sum += Int(value)!
+            }
+            
+            return currentWindow > previousWindow
+        }
+        
+        print(increasingWindows.count)
     }
 }
