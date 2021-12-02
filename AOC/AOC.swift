@@ -18,16 +18,8 @@ enum AOC {
         Day1.self,
     ]
     
-    static func runMostRecentChallenge() {
-        let mostRecentChallenge = AOC.challenges.last!
-        print("Challenge", String(describing: mostRecentChallenge))
-
-        let instance = mostRecentChallenge.init()
-        print("\nPuzzle 1:")
-        instance.runPuzzle1()
-
-        print("\nPuzzle 2:")
-        instance.runPuzzle2()
+    static var newestChallenge: Challenge.Type {
+        return self.challenges.last!
     }
     
     static func getInput(from fileName: String) -> String {

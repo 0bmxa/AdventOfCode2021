@@ -8,44 +8,40 @@
 import Foundation
 
 struct Day1: Challenge {
-    private let input: [String.SubSequence]
-    
+    private let input: [Int]
+
     init() {
         let file = AOC.getInput(from: "Day1.txt")
-        self.input = file.split(whereSeparator: \.isNewline)
+        self.input = file.split(whereSeparator: \.isNewline).map { Int($0)! }
     }
-    
-    func runPuzzle1() {
-        let increasingLines = self.input.enumerated().filter { (index, value) in
-            guard index > 0 else { return false }
-            
-            let current = Int(value)!
-            let previous = Int(self.input[index-1])!
-            return current > previous
-        }
-        
-        print(increasingLines.count)
-    }
-    
-    func runPuzzle2() {        
-        let windowSize = 3
-        let increasingWindows = self.input.enumerated().filter { (index, _) in
-            guard index >= windowSize else { return false }
 
-            let previousWindowIndices = (index - windowSize)     ... (index - 1)
-            let currentWindowIndices  = (index - windowSize + 1) ... index
-            
-            let previousWindow = self.input[previousWindowIndices].reduce(into: 0) { sum, value in
-                sum += Int(value)!
-            }
-            
-            let currentWindow = self.input[currentWindowIndices].reduce(into: 0) { sum, value in
-                sum += Int(value)!
-            }
-            
-            return currentWindow > previousWindow
+    func runPuzzle1() {
+        var count = 0
+        (0..<input.count).forEach { index in
+            guard index > 0 else { return }
+
+            let current = input[index]
+            let previous = input[index-1]
+            count += (current > previous) ? 1 : 0
         }
+
+        PrintBuffer.add("\(count)")
+    }
+    
+
+    func runPuzzle2() {
+        let windowSize = 3
         
-        print(increasingWindows.count)
+        var count = 0
+        (windowSize..<input.count).forEach { index in
+            // As the two consecutive windows have an overlap of N-1, and we are
+            // just summing them, we can simply ignore the overlapping value,
+            // i.e. only compare the two non-overlapping ones
+            let previousWindowSignificant = input[index-windowSize]
+            let currentWindowSignificant  = input[index]
+            count += (currentWindowSignificant > previousWindowSignificant) ? 1 : 0
+        }
+
+        PrintBuffer.add("\(count)")
     }
 }
