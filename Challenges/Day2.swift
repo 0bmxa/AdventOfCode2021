@@ -10,6 +10,7 @@ import Foundation
 struct BoatVector {
     var x: Int32
     var y: Int32
+    var aim: Int32 = 0
 }
 
 struct Day2: Challenge {
@@ -44,6 +45,17 @@ struct Day2: Challenge {
     
 
     func runPuzzle2() {
-        // TODO
+        let sum = self.input.reduce(into: BoatVector(x: 0, y: 0, aim: 0)) { sum, current in
+            if current.x == 0 {
+                sum.aim += current.y
+            } else {
+                sum.x += current.x
+                sum.y += current.x * sum.aim
+            }
+        }
+        
+        let result = sum.x * sum.y
+        
+        PrintBuffer.add("\(result)")
     }
 }
