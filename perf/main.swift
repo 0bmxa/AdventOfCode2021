@@ -9,15 +9,14 @@ import Foundation
 
 func main() {
     // Which challenge to measure & how many times
-    let challenge = AOC.newestChallenge
+    let challenge = Day2.self
     let rounds: UInt64 = 100_000
     
     Swift.print("Measuring challenge \(challenge)")
     
     // Instantiate the challenge
     // Note: avoid protocols here, as the lookup costs us about 100us/call
-//    let instance = challenge.init()
-    let instance = Day1()
+    let instance = challenge.init()
     
     // Time variables
     var start, duration: UInt64

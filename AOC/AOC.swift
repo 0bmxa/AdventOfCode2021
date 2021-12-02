@@ -16,6 +16,7 @@ protocol Challenge {
 enum AOC {
     static let challenges: [Challenge.Type] = [
         Day1.self,
+        Day2.self,
     ]
     
     static var newestChallenge: Challenge.Type {

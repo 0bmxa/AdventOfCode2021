@@ -15,6 +15,8 @@
 		A7063AC22758253D00489F34 /* PrintBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7063AC02758253D00489F34 /* PrintBuffer.swift */; };
 		A78827DE2757FC290054FDE2 /* AOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78827DB2757FC290054FDE2 /* AOC.swift */; };
 		A78827DF2757FC290054FDE2 /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78827DD2757FC290054FDE2 /* Day1.swift */; };
+		A7DB9A082758C9AA000C4BA2 /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A072758C9AA000C4BA2 /* Day2.swift */; };
+		A7DB9A092758C9AA000C4BA2 /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A072758C9AA000C4BA2 /* Day2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +49,7 @@
 		A78827DA2757FC290054FDE2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		A78827DB2757FC290054FDE2 /* AOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AOC.swift; sourceTree = "<group>"; };
 		A78827DD2757FC290054FDE2 /* Day1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day1.swift; sourceTree = "<group>"; };
+		A7DB9A072758C9AA000C4BA2 /* Day2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				A78827DD2757FC290054FDE2 /* Day1.swift */,
+				A7DB9A072758C9AA000C4BA2 /* Day2.swift */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -210,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7063ABC2758181E00489F34 /* Day1.swift in Sources */,
+				A7DB9A092758C9AA000C4BA2 /* Day2.swift in Sources */,
 				A7063AB52758173600489F34 /* main.swift in Sources */,
 				A7063AC22758253D00489F34 /* PrintBuffer.swift in Sources */,
 				A7063ABB2758181B00489F34 /* AOC.swift in Sources */,
@@ -221,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7063ABD2758183300489F34 /* main.swift in Sources */,
+				A7DB9A082758C9AA000C4BA2 /* Day2.swift in Sources */,
 				A78827DF2757FC290054FDE2 /* Day1.swift in Sources */,
 				A7063AC12758253D00489F34 /* PrintBuffer.swift in Sources */,
 				A78827DE2757FC290054FDE2 /* AOC.swift in Sources */,
