@@ -17,6 +17,8 @@
 		A7DB9A1E2758E159000C4BA2 /* AOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A122758E159000C4BA2 /* AOC.swift */; };
 		A7DB9A1F2758E159000C4BA2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A142758E159000C4BA2 /* main.swift */; };
 		A7DB9A222758E159000C4BA2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A162758E159000C4BA2 /* main.swift */; };
+		A7DB9A26275A41C5000C4BA2 /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A25275A41C5000C4BA2 /* Day3.swift */; };
+		A7DB9A27275A41C5000C4BA2 /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A25275A41C5000C4BA2 /* Day3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +52,7 @@
 		A7DB9A122758E159000C4BA2 /* AOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AOC.swift; sourceTree = "<group>"; };
 		A7DB9A142758E159000C4BA2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A7DB9A162758E159000C4BA2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A7DB9A25275A41C5000C4BA2 /* Day3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 			children = (
 				A7DB9A0E2758E159000C4BA2 /* Day1.swift */,
 				A7DB9A0F2758E159000C4BA2 /* Day2.swift */,
+				A7DB9A25275A41C5000C4BA2 /* Day3.swift */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -225,6 +229,7 @@
 				A7DB9A1C2758E159000C4BA2 /* Day2.swift in Sources */,
 				A7DB9A222758E159000C4BA2 /* main.swift in Sources */,
 				A7DB9A1E2758E159000C4BA2 /* AOC.swift in Sources */,
+				A7DB9A27275A41C5000C4BA2 /* Day3.swift in Sources */,
 				A7DB9A1A2758E159000C4BA2 /* Day1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +242,7 @@
 				A7DB9A1B2758E159000C4BA2 /* Day2.swift in Sources */,
 				A7DB9A1F2758E159000C4BA2 /* main.swift in Sources */,
 				A7DB9A1D2758E159000C4BA2 /* AOC.swift in Sources */,
+				A7DB9A26275A41C5000C4BA2 /* Day3.swift in Sources */,
 				A7DB9A192758E159000C4BA2 /* Day1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
