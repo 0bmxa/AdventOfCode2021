@@ -17,38 +17,22 @@ protocol Challenge {
 }
 
 extension Challenge {
-    static func verify() -> Bool {
-        print("\nVerifying with sample data...")
-        
+    static func verify(puzzle: Int) -> Bool {
         // Instantiate
-        let testVersion = self.init(useSampleData: true)
+        let challenge = self.init(useSampleData: true)
         
-        // Run both puzzles
-        let resultP1 = testVersion.runPuzzle1()
-        let passP1 = (resultP1 == testVersion.puzzle1SampleResult)
-        print("Puzzle 1:", resultP1, passP1 ? "PASS" : "FAIL!")
-        guard passP1 else { return false }
-        
-        let resultP2 = testVersion.runPuzzle2()
-        let passP2 = (resultP2 == testVersion.puzzle2SampleResult)
-        print("Puzzle 2:", resultP2, passP2 ? "PASS" : "FAIL!")
-        guard passP2 else { return false }
-        
-        return true
+        // Run selected puzzle
+        let result   = (puzzle == 1) ? challenge.runPuzzle1()        : challenge.runPuzzle2()
+        let expected = (puzzle == 1) ? challenge.puzzle1SampleResult : challenge.puzzle2SampleResult
+
+        let success = (result == expected)
+        let message = (success ? "PASS (result: \(result))" : "FAIL (got: \(result), expected: \(expected)")
+        print("Test:", message)
+        return success
     }
 }
 
 enum AOC {
-    static let challenges: [Challenge.Type] = [
-        Day1.self,
-        Day2.self,
-        Day3.self,
-    ]
-    
-    static var newestChallenge: Challenge.Type {
-        return self.challenges.last!
-    }
-    
     static func getInput(from fileName: String) -> String {
         let projectDir = Bundle.main.infoDictionary!["PROJECT_DIR"] as! String
         let inputFilePath = projectDir + "/input/" + fileName

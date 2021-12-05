@@ -9,18 +9,21 @@ import Foundation
 
 func main() {
     // The challenge to run
-    let challenge = Day5.self
+    let challengeType = Day5.self
     
-    print("Challenge", String(describing: challenge))
+    print("Challenge", String(describing: challengeType))
 
-    // Verify with sample data
-    guard challenge.verify() else { return }
-    
-    // Run both puzzles
-    print("\nRunning with real data...")
-    let realVersion = challenge.init(useSampleData: false)
-    print("Puzzle 1:", realVersion.runPuzzle1())
-    print("Puzzle 2:", realVersion.runPuzzle2())
+    let challenge = challengeType.init(useSampleData: false)
+
+    // Verify & run puzzle 1
+    print("\nPuzzle 1:")
+    guard challengeType.verify(puzzle: 1) else { return }
+    print("Real data:", challenge.runPuzzle1())
+
+    // Verify & run puzzle 2
+    print("\nPuzzle 2:")
+    guard challengeType.verify(puzzle: 2) else { return }
+    print("Real data:", challenge.runPuzzle2())
 }
 
 main()
