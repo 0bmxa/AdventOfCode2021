@@ -9,7 +9,7 @@ import Foundation
 
 struct Day5: Challenge {
     var puzzle1SampleResult: Int { 5 }
-    var puzzle2SampleResult: Int { 0 }
+    var puzzle2SampleResult: Int { 12 }
     
     private let input: [String.SubSequence]
     
@@ -20,6 +20,7 @@ struct Day5: Challenge {
     func runPuzzle1() -> Int {
         let points = self.input.flatMap { row -> [Point] in
             let line = Line(from: row)
+            guard [.point, .horizonal, .vertical].contains(line.direction) else { return [] }
             return line.allPoints
         }
         
@@ -31,13 +32,31 @@ struct Day5: Challenge {
     }
     
     func runPuzzle2() -> Int {
-        return 0
+        let points = self.input.flatMap { row -> [Point] in
+            let line = Line(from: row)
+            guard line.direction != .other else { return [] }
+            return line.allPoints
+        }
+        
+        let histrogram = points.reduce(into: [:]) { histrogram, point in
+            histrogram[point] = (histrogram[point] ?? 0) + 1
+        }
+        
+        return histrogram.filter { $0.value > 1 }.count
     }
 }
 
 
 extension Day5 {
     struct Line {
+        enum Direction {
+            case point
+            case horizonal
+            case vertical
+            case diagonal45
+            case other
+        }
+        
         let start: Point
         let end: Point
         
@@ -47,26 +66,46 @@ extension Day5 {
             self.end   = Point(coordinates: points[1])
         }
         
+        var length: Int {
+            return max(abs(end.x - start.x), abs(end.y - start.y)) + 1
+        }
+        
+        var direction: Direction {
+            if start == end {
+                return .point
+            } else if start.x == end.x {
+                return .vertical
+            } else if start.y == end.y {
+                return .horizonal
+            } else if abs(start.x - end.x) == abs(start.y - end.y) {
+                return .diagonal45
+            }
+            return .other
+        }
+        
         var allPoints: [Point] {
-            // Just one point
-            if start == end { return [start] }
-            
-            // Vertical line
-            if start.x == end.x {
+            switch self.direction {
+            case .point:
+                return [start]
+                
+            case .vertical:
                 let x = start.x
-                let ys = (start.y < end.y) ? (start.y...end.y) : (end.y...start.y)
-                return ys.map { y in Point(x, y) }
-            }
-            
-            // Horizontal line
-            if start.y == end.y {
-                let xs = (start.x < end.x) ? (start.x...end.x) : (end.x...start.x)
+                let step = (start.y < end.y) ? 1 : -1
+                return (0..<length).map { i in Point(x, start.y + step * i) }
+
+            case .horizonal:
                 let y = start.y
-                return xs.map { x in Point(x, y) }
+                let step = (start.x < end.x) ? 1 : -1
+                return (0..<length).map { i in Point(start.x + step * i, y) }
+
+            case .diagonal45:
+                let xStep = (start.x < end.x) ? 1 : -1
+                let yStep = (start.y < end.y) ? 1 : -1
+                return (0..<length).map { i in Point(start.x + xStep * i, start.y + yStep * i) }
+
+            default:
+                return []
             }
-            
-            // Diagonal not supported
-            return []
         }
     }
     
