@@ -11,18 +11,16 @@ func main() {
     // The challenge to run
     let challenge = AOC.newestChallenge
     
-    Swift.print("Running challenge", String(describing: challenge))
+    print("Challenge", String(describing: challenge))
 
-    // Instantiate
-    let instance = challenge.init()
-
-    // Run both puzzles
-    Swift.print("\nPuzzle 1:")
-    instance.runPuzzle1()
-    PrintBuffer.flush()
+    // Verify with sample data
+    guard challenge.verify() else { return }
     
-    Swift.print("\nPuzzle 2:")
-    instance.runPuzzle2()
-    PrintBuffer.flush()
+    // Run both puzzles
+    print("\nRunning with real data...")
+    let realVersion = challenge.init(useSampleData: false)
+    print("Puzzle 1:", realVersion.runPuzzle1())
+    print("Puzzle 2:", realVersion.runPuzzle2())
 }
+
 main()

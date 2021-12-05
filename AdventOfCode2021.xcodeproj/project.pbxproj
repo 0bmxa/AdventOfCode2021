@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A7DB9A172758E159000C4BA2 /* PrintBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A0C2758E159000C4BA2 /* PrintBuffer.swift */; };
-		A7DB9A182758E159000C4BA2 /* PrintBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A0C2758E159000C4BA2 /* PrintBuffer.swift */; };
 		A7DB9A192758E159000C4BA2 /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A0E2758E159000C4BA2 /* Day1.swift */; };
 		A7DB9A1A2758E159000C4BA2 /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A0E2758E159000C4BA2 /* Day1.swift */; };
 		A7DB9A1B2758E159000C4BA2 /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A0F2758E159000C4BA2 /* Day2.swift */; };
@@ -45,7 +43,6 @@
 /* Begin PBXFileReference section */
 		A7063AB22758173500489F34 /* perf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = perf; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78827C22757CC2B0054FDE2 /* run */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = run; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7DB9A0C2758E159000C4BA2 /* PrintBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintBuffer.swift; sourceTree = "<group>"; };
 		A7DB9A0E2758E159000C4BA2 /* Day1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day1.swift; sourceTree = "<group>"; };
 		A7DB9A0F2758E159000C4BA2 /* Day2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day2.swift; sourceTree = "<group>"; };
 		A7DB9A112758E159000C4BA2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
@@ -96,18 +93,9 @@
 				A7DB9A132758E159000C4BA2 /* run */,
 				A7DB9A152758E159000C4BA2 /* perf */,
 				A7DB9A102758E159000C4BA2 /* AOC */,
-				A7DB9A0B2758E159000C4BA2 /* Tools */,
 				A7DB9A0D2758E159000C4BA2 /* Challenges */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		A7DB9A0B2758E159000C4BA2 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				A7DB9A0C2758E159000C4BA2 /* PrintBuffer.swift */,
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		A7DB9A0D2758E159000C4BA2 /* Challenges */ = {
@@ -225,7 +213,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7DB9A182758E159000C4BA2 /* PrintBuffer.swift in Sources */,
 				A7DB9A1C2758E159000C4BA2 /* Day2.swift in Sources */,
 				A7DB9A222758E159000C4BA2 /* main.swift in Sources */,
 				A7DB9A1E2758E159000C4BA2 /* AOC.swift in Sources */,
@@ -238,7 +225,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7DB9A172758E159000C4BA2 /* PrintBuffer.swift in Sources */,
 				A7DB9A1B2758E159000C4BA2 /* Day2.swift in Sources */,
 				A7DB9A1F2758E159000C4BA2 /* main.swift in Sources */,
 				A7DB9A1D2758E159000C4BA2 /* AOC.swift in Sources */,

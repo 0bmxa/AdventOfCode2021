@@ -14,9 +14,12 @@ struct BoatVector {
 }
 
 struct Day2: Challenge {
+    var puzzle1SampleResult = 000
+    var puzzle2SampleResult = 000
+
     private let input: [BoatVector]
 
-    init() {
+    init(useSampleData: Bool) {
         let file = AOC.getInput(from: "Day2.txt")
         self.input = file.split(whereSeparator: \.isNewline).map { line in
             let parts = line.split(separator: " ")
@@ -32,7 +35,7 @@ struct Day2: Challenge {
         }
     }
 
-    func runPuzzle1() {
+    func runPuzzle1() -> Int {
         let sum = self.input.reduce(into: BoatVector(x: 0, y: 0)) { sum, current in
             sum.x += current.x
             sum.y += current.y
@@ -40,11 +43,11 @@ struct Day2: Challenge {
 
         let result = sum.x * sum.y
         
-        PrintBuffer.add("\(result)")
+        return Int(result)
     }
     
 
-    func runPuzzle2() {
+    func runPuzzle2() -> Int {
         let sum = self.input.reduce(into: BoatVector(x: 0, y: 0, aim: 0)) { sum, current in
             if current.x == 0 {
                 sum.aim += current.y
@@ -56,6 +59,6 @@ struct Day2: Challenge {
         
         let result = sum.x * sum.y
         
-        PrintBuffer.add("\(result)")
+        return Int(result)
     }
 }

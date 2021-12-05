@@ -7,17 +7,21 @@
 
 import Foundation
 
-struct Day3: Challenge {
+class Day3: Challenge {
+    var puzzle1SampleResult = 198
+    var puzzle2SampleResult = 230
+    
     private let input: [String.SubSequence]
     private let bitDepth: Int
-
-    init() {
-        let file = AOC.getInput(from: "Day3.txt")
+    
+    required init(useSampleData: Bool = false) {
+        let fileName = useSampleData ? "ExampleDay3.txt" : "Day3.txt"
+        let file = AOC.getInput(from: fileName)
         self.input = file.split(whereSeparator: \.isNewline)
         self.bitDepth = self.input[0].count
     }
 
-    func runPuzzle1() {
+    func runPuzzle1() -> Int {
         var storage = Array.init(repeating: 0, count: bitDepth)
         
         self.input.forEach { entry in
@@ -33,15 +37,12 @@ struct Day3: Challenge {
         
         let offset = gamma.bitWidth - bitDepth
         let epsilon = (~gamma << offset) >> offset
-        
-        let result = Int(gamma) * Int(epsilon)
-        
 
-        PrintBuffer.add("\(result)")
+        return Int(gamma) * Int(epsilon)
     }
     
 
-    func runPuzzle2() {
+    func runPuzzle2() -> Int {
         //
     }
 }

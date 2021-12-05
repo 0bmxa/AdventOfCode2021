@@ -8,9 +8,34 @@
 import Foundation
 
 protocol Challenge {
-    init()
-    func runPuzzle1()
-    func runPuzzle2()
+    init(useSampleData: Bool)
+    func runPuzzle1() -> Int
+    func runPuzzle2() -> Int
+    
+    var puzzle1SampleResult: Int { get }
+    var puzzle2SampleResult: Int { get }
+}
+
+extension Challenge {
+    static func verify() -> Bool {
+        print("\nVerifying with sample data...")
+        
+        // Instantiate
+        let testVersion = self.init(useSampleData: true)
+        
+        // Run both puzzles
+        let resultP1 = testVersion.runPuzzle1()
+        let passP1 = (resultP1 == testVersion.puzzle1SampleResult)
+        print("Puzzle 1:", resultP1, passP1 ? "PASS" : "FAIL!")
+        guard passP1 else { return false }
+        
+        let resultP2 = testVersion.runPuzzle2()
+        let passP2 = (resultP2 == testVersion.puzzle2SampleResult)
+        print("Puzzle 2:", resultP2, passP2 ? "PASS" : "FAIL!")
+        guard passP2 else { return false }
+        
+        return true
+    }
 }
 
 enum AOC {
