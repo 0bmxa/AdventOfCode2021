@@ -14,6 +14,9 @@ class Day3: Challenge {
     private let input: [String.SubSequence]
     private let bitDepth: Int
     
+    private var gamma: UInt16?
+    private var epsilon: UInt16?
+    
     required init(useSampleData: Bool = false) {
         let fileName = useSampleData ? "ExampleDay3.txt" : "Day3.txt"
         let file = AOC.getInput(from: fileName)
@@ -38,11 +41,21 @@ class Day3: Challenge {
         let offset = gamma.bitWidth - bitDepth
         let epsilon = (~gamma << offset) >> offset
 
+        self.gamma = gamma
+        self.epsilon = epsilon
+
         return Int(gamma) * Int(epsilon)
     }
     
 
     func runPuzzle2() -> Int {
-        //
+        let sortedInput = self.input
+            .map { UInt16($0, radix: 2)! }
+            .sorted { $1 > $0}
+        
+        let oxygen = sortedInput.first { $0 > self.gamma! }!
+        let co2    = sortedInput.first { $0 > self.epsilon! }!
+        
+        return Int(oxygen) * Int(co2)
     }
 }
