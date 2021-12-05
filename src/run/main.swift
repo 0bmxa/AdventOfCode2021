@@ -9,7 +9,7 @@ import Foundation
 
 func main() {
     // The challenge to run
-    let challenge = AOC.newestChallenge
+    let challenge = Day5.self
     
     print("Challenge", String(describing: challenge))
 
