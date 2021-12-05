@@ -14,8 +14,7 @@ struct Day1: Challenge {
     private let input: [Int]
 
     init(useSampleData: Bool) {
-        let file = AOC.getInput(from: "Day1.txt")
-        self.input = file.split(whereSeparator: \.isNewline).map { Int($0)! }
+        self.input = Self.getInput(day: 1, sample: useSampleData).map { Int($0)! }
     }
 
     func runPuzzle1() -> Int {

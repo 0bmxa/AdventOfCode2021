@@ -20,8 +20,7 @@ struct Day2: Challenge {
     private let input: [BoatVector]
 
     init(useSampleData: Bool) {
-        let file = AOC.getInput(from: "Day2.txt")
-        self.input = file.split(whereSeparator: \.isNewline).map { line in
+        self.input = Self.getInput(day: 2, sample: useSampleData).map { line in
             let parts = line.split(separator: " ")
             let direction = parts[0]
             let amount = Int32(parts[1])!

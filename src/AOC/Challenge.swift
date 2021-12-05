@@ -30,20 +30,13 @@ extension Challenge {
         print("Test:", message)
         return success
     }
-}
-
-enum AOC {
-    static func getInput(from fileName: String) -> String {
-        let projectDir = Bundle.main.infoDictionary!["PROJECT_DIR"] as! String
-        let inputFilePath = projectDir + "/input/" + fileName
-        return try! String(contentsOfFile: inputFilePath)
-    }
 
     static func getInput(day: Int, sample: Bool) -> [String.SubSequence] {
+        let projectDir = Bundle.main.infoDictionary!["PROJECT_DIR"] as! String
+
         let prefix = sample ? "Example" : ""
         let fileName = "\(prefix)Day\(day).txt"
         
-        let projectDir = Bundle.main.infoDictionary!["PROJECT_DIR"] as! String
         let inputFilePath = projectDir + "/input/" + fileName
         let content = try! String(contentsOfFile: inputFilePath)
 

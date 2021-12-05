@@ -18,9 +18,7 @@ class Day3: Challenge {
     private var epsilon: UInt16?
     
     required init(useSampleData: Bool = false) {
-        let fileName = useSampleData ? "ExampleDay3.txt" : "Day3.txt"
-        let file = AOC.getInput(from: fileName)
-        self.input = file.split(whereSeparator: \.isNewline)
+        self.input = Self.getInput(day: 3, sample: useSampleData)
         self.bitDepth = self.input[0].count
     }
 

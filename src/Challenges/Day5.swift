@@ -14,7 +14,7 @@ struct Day5: Challenge {
     private let input: [String.SubSequence]
     
     init(useSampleData: Bool) {
-        self.input = AOC.getInput(day: 5, sample: useSampleData)
+        self.input = Self.getInput(day: 5, sample: useSampleData)
     }
     
     func runPuzzle1() -> Int {
