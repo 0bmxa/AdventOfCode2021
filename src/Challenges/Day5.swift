@@ -8,13 +8,13 @@
 import Foundation
 
 struct Day5: Challenge {
-    var puzzle1SampleResult: Int { 5 }
-    var puzzle2SampleResult: Int { 12 }
+    var puzzle1SampleResult: Int? = 5
+    var puzzle2SampleResult: Int? = 12
     
-    private let input: [String.SubSequence]
+    let input: [Substring]
     
-    init(useSampleData: Bool) {
-        self.input = Self.getInput(day: 5, sample: useSampleData)
+    init(testing: Bool) {
+        self.input = Self.getInput(sampleData: testing)
     }
     
     func runPuzzle1() -> Int {

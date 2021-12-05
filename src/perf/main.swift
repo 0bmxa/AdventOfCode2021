@@ -9,14 +9,14 @@ import Foundation
 
 func main() {
     // Which challenge to measure & how many times
-    let challenge = Day2.self
-    let rounds: UInt64 = 100_000
+    let challenge = Day5.self
+    let rounds: UInt64 = 1_000
     
-    Swift.print("Measuring challenge \(challenge)")
+    print("Measuring challenge \(challenge.name)")
     
     // Instantiate the challenge
     // Note: avoid protocols here, as the lookup costs us about 100us/call
-    let instance = challenge.init()
+    let instance = challenge.init(testing: false)
     
     // Time variables
     var start, duration: UInt64
@@ -24,29 +24,30 @@ func main() {
     
     
     // Measure puzzle 1
-    Swift.print("\nPuzzle 1 (\(rounds) rounds)...")
+    print("\nPuzzle 1 (\(rounds) rounds)...")
+    var result = 0
     start = mach_absolute_time()
     
     (0..<rounds).forEach { _ in
-        instance.runPuzzle1()
+        result = instance.runPuzzle1()
     }
     duration = mach_absolute_time() - start
     
-    Swift.print("completed in \(duration/nanosPerSecond) s -> \(duration/rounds) ns/round")
-    PrintBuffer.flush()
+    print("completed in \(duration/nanosPerSecond) s -> \(duration/rounds) ns/round")
+    print("Result:", result)
 
     
     // Measure puzzle 2
-    Swift.print("\nPuzzle 2 (\(rounds) rounds)...")
+    print("\nPuzzle 2 (\(rounds) rounds)...")
     
     start = mach_absolute_time()
     (0..<rounds).forEach { _ in
-        instance.runPuzzle2()
+        result = instance.runPuzzle2()
     }
     duration = mach_absolute_time() - start
     
-    Swift.print("completed in \(duration/nanosPerSecond) s -> \(duration/rounds) ns/round")
-    PrintBuffer.flush()
+    print("completed in \(duration/nanosPerSecond) s -> \(duration/rounds) ns/round")
+    print("Result:", result)
 }
 
 main()

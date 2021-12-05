@@ -8,8 +8,8 @@
 import Foundation
 
 class Day3: Challenge {
-    var puzzle1SampleResult = 198
-    var puzzle2SampleResult = 230
+    var puzzle1SampleResult: Int? = 198
+    var puzzle2SampleResult: Int? = 230
     
     private let input: [String.SubSequence]
     private let bitDepth: Int
@@ -17,8 +17,8 @@ class Day3: Challenge {
     private var gamma: UInt16?
     private var epsilon: UInt16?
     
-    required init(useSampleData: Bool = false) {
-        self.input = Self.getInput(day: 3, sample: useSampleData)
+    required init(testing: Bool) {
+        self.input = Self.getInput(sampleData: testing)
         self.bitDepth = self.input[0].count
     }
 

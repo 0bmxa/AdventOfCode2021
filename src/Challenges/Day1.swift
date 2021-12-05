@@ -8,13 +8,13 @@
 import Foundation
 
 struct Day1: Challenge {
-    var puzzle1SampleResult = 000
-    var puzzle2SampleResult = 000
+    var puzzle1SampleResult: Int?
+    var puzzle2SampleResult: Int?
 
     private let input: [Int]
 
-    init(useSampleData: Bool) {
-        self.input = Self.getInput(day: 1, sample: useSampleData).map { Int($0)! }
+    init(testing: Bool) {
+        self.input = Self.getInput(sampleData: testing).map { Int($0)! }
     }
 
     func runPuzzle1() -> Int {

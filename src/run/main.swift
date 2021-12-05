@@ -11,9 +11,9 @@ func main() {
     // The challenge to run
     let challengeType = Day5.self
     
-    print("Challenge", String(describing: challengeType))
+    print("Challenge", challengeType.name)
 
-    let challenge = challengeType.init(useSampleData: false)
+    let challenge = challengeType.init(testing: false)
 
     // Verify & run puzzle 1
     print("\nPuzzle 1:")

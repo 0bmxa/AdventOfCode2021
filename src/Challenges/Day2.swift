@@ -14,13 +14,13 @@ struct BoatVector {
 }
 
 struct Day2: Challenge {
-    var puzzle1SampleResult = 000
-    var puzzle2SampleResult = 000
+    var puzzle1SampleResult: Int?
+    var puzzle2SampleResult: Int?
 
     private let input: [BoatVector]
 
-    init(useSampleData: Bool) {
-        self.input = Self.getInput(day: 2, sample: useSampleData).map { line in
+    init(testing: Bool) {
+        self.input = Self.getInput(sampleData: testing).map { line in
             let parts = line.split(separator: " ")
             let direction = parts[0]
             let amount = Int32(parts[1])!
