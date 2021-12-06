@@ -9,28 +9,30 @@ import Foundation
 
 struct Day4: Challenge {
     var puzzle1SampleResult: Int? = 4512
-    var puzzle2SampleResult: Int?
+    var puzzle2SampleResult: Int? = 1924
     
-    private let draws: [Int]
-    private let boards: [Board]
+    private let input: [Substring]
     
     init(testing: Bool) {
-        let input = Self.getInput(sampleData: testing)
-        
-        self.draws = input[0].split(separator: ",").map { Int($0)! }
-        
-        let boardHeight = 5
-        self.boards = stride(from: 1, to: input.count, by: boardHeight).map {
-            let rows = input[$0 ..< $0+5]
+        self.input = Self.getInput(sampleData: testing)
+    }
+    
+    var playData: ([Int], [Board]) {
+        let draws = self.input[0].split(separator: ",").map { Int($0)! }
+        let boards: [Board] = stride(from: 1, to: input.count, by: 5).map {
+            let rows = self.input[$0 ..< $0+5]
             return Board(from: rows)
         }
+        return (draws, boards)
     }
 
     func runPuzzle1() -> Int {
+        let (draws, boards) = self.playData
+        
         var winningBoard: Board! = nil
         var winningNumber: Int!
-        for (round, number) in self.draws.enumerated() {
-            if let _winningBoard = self.play(round: round, draw: number) {
+        for (round, number) in draws.enumerated() {
+            if let _winningBoard = self.play(round: round, draw: number, boards: boards) {
                 winningBoard = _winningBoard
                 winningNumber = number
                 break
@@ -41,18 +43,40 @@ struct Day4: Challenge {
         return boardScore * winningNumber
     }
     
-    private func play(round: Int, draw number: Int) -> Board? {
-        for board in self.boards {
-            board.mark(number)
-            if round > 5, board.hasBingo {
-                return board
+    func runPuzzle2() -> Int {
+        let (draws, boards) = self.playData
+        
+        var loosingBoard: Board! = nil
+        var loosingNumber: Int!
+        for (round, number) in draws.enumerated() {
+            print("Round ", round, "\tNumber:", number)
+            if let winningBoard = self.play(round: round, draw: number, boards: boards) {
+                print("a board won")
+                
+                let remainingBoards = boards.filter({ !$0.won }).count
+                if remainingBoards == 0 {
+                    loosingBoard = winningBoard
+                    loosingNumber = number
+                    break
+                }
             }
         }
-        return nil
+        
+        let boardScore = loosingBoard!.fields.reduce(0) { $0 + (!$1.marked ? $1.value : 0) }
+        return boardScore * loosingNumber
     }
     
-    func runPuzzle2() -> Int {
-        return -1
+    private func play(round: Int, draw number: Int, boards: [Board]) -> Board? {
+        var winner: Board?
+        for board in boards {
+            if board.won { continue }
+            board.mark(number)
+            if round > 5, board.hasBingo {
+                board.won = true
+                winner = board
+            }
+        }
+        return winner
     }
 }
 
@@ -64,6 +88,7 @@ extension Day4 {
     
     class Board {
         var fields: [Field]
+        var won: Bool = false
         
         init(from rows: ArraySlice<Substring>) {
             guard rows.count == 5 else { fatalError() }
