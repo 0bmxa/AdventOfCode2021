@@ -9,8 +9,8 @@ import Foundation
 
 func main() {
     // Which challenge to measure & how many times
-    let challenge = Day5.self
-    let rounds: UInt64 = 1_000
+    let challenge = Day6.self
+    let rounds: UInt64 = 100_000
     
     print("Measuring challenge \(challenge.name)")
     

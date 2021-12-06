@@ -9,66 +9,79 @@ import Foundation
 
 struct Day6: Challenge {
     var puzzle1SampleResult: Int? = 5934
-    var puzzle2SampleResult: Int?
+    var puzzle2SampleResult: Int? = 26984457539
     
-    let school: School
+    let input: Substring
     
     init(testing: Bool) {
-        let input = Self.getInput(sampleData: testing)[0]
-        self.school = School(from: input)
+        self.input = Self.getInput(sampleData: testing)[0]
     }
     
     func runPuzzle1() -> Int {
         let rounds = 80
+        let school = School(from: input)
         
         for _ in (0..<rounds) {
-            self.school.age()
+            school.age()
         }
         
-        return self.school.fish.count
+        return Int(school.fishCount)
     }
     
     func runPuzzle2() -> Int {
-        return 0
-    }   
+        let rounds = 256
+        let school = School(from: input)
+        
+        for _ in (0..<rounds) {
+            school.age()
+        }
+        
+        return Int(school.fishCount)
+    }
 }
 
 extension Day6 {
     class School: CustomStringConvertible {
-        var fish: [Fish]
-
+        
+        /// List of fish, length 9 (0...8).
+        /// - index: remaining days until spawn
+        /// - value: count of fish
+        var fish: [UInt64]
+        
         init(from initial: Substring) {
-            self.fish = initial.split(separator: ",").map { Fish(remainingDays: Int($0)!) }
+            self.fish = Array(repeating: 0, count: 9)
+            
+            initial.split(separator: ",").forEach {
+                let age = Int($0)!
+                self.fish[age] += 1
+            }
+        }
+        
+        func age() {
+            // Remove the fish at 0 days
+            let numberOfFishToSpawn = self.fish.remove(at: 0)
+
+            // Restart the existing fish at 6 days
+            self.fish[6] += numberOfFishToSpawn
+            
+            // Add the new fish at 8 days
+            self.fish.append(numberOfFishToSpawn)
+        }
+        
+        var fishCount: UInt64 {
+            self.fish.reduce(0) { $0 + $1 }
         }
 
-        func age() {
-            (0..<self.fish.count).forEach { i in
-                let shouldSpawn = self.fish[i].age()
-                if shouldSpawn { self.fish.append(Fish()) }
-            }
-        }
-        
         var description: String {
-            self.fish.reduce("") { $0 + "\($1.remainingDays)," }
-        }
-    }
-    
-    struct Fish {
-        var remainingDays: Int
-        
-        init(remainingDays: Int = 8) {
-            self.remainingDays = remainingDays
-        }
-        
-        /// Ages the fish by one day
-        /// - Returns: Whether a new fish should be spawned.
-        mutating func age() -> Bool {
-            if remainingDays == 0 {
-                self.remainingDays = 6
-                return true
+            let (title, values) = (0..<self.fish.count).reduce(("Remain: ", "Count:  ")) { acc, i in
+                let num = "\(self.fish[i])"
+                return (
+                    acc.0 + String(repeating: " ", count: num.count) + "\(i)",
+                    acc.1 + " " + num
+                )
             }
-            self.remainingDays -= 1
-            return false
+            
+            return title + "\n" + values + "\n"
         }
     }
 }
