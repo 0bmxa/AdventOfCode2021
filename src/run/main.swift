@@ -9,7 +9,7 @@ import Foundation
 
 func main() {
     // The challenge to run
-    let challengeType = Day5.self
+    let challengeType = Day4.self
     
     print("Challenge", challengeType.name)
 

@@ -17,6 +17,8 @@
 		A7DB9A222758E159000C4BA2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A162758E159000C4BA2 /* main.swift */; };
 		A7DB9A26275A41C5000C4BA2 /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A25275A41C5000C4BA2 /* Day3.swift */; };
 		A7DB9A27275A41C5000C4BA2 /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A25275A41C5000C4BA2 /* Day3.swift */; };
+		A7DB9A39275C48F9000C4BA2 /* Day4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A38275C4786000C4BA2 /* Day4.swift */; };
+		A7DB9A3A275C48FA000C4BA2 /* Day4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A38275C4786000C4BA2 /* Day4.swift */; };
 		A7DB9A3C275D0E13000C4BA2 /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A3B275D0E13000C4BA2 /* Day5.swift */; };
 		A7DB9A3D275D0E13000C4BA2 /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DB9A3B275D0E13000C4BA2 /* Day5.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,7 @@
 		A7DB9A142758E159000C4BA2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A7DB9A162758E159000C4BA2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A7DB9A25275A41C5000C4BA2 /* Day3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day3.swift; sourceTree = "<group>"; };
+		A7DB9A38275C4786000C4BA2 /* Day4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day4.swift; sourceTree = "<group>"; };
 		A7DB9A3B275D0E13000C4BA2 /* Day5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day5.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +110,7 @@
 				A7DB9A0E2758E159000C4BA2 /* Day1.swift */,
 				A7DB9A0F2758E159000C4BA2 /* Day2.swift */,
 				A7DB9A25275A41C5000C4BA2 /* Day3.swift */,
+				A7DB9A38275C4786000C4BA2 /* Day4.swift */,
 				A7DB9A3B275D0E13000C4BA2 /* Day5.swift */,
 			);
 			path = Challenges;
@@ -219,6 +223,7 @@
 			files = (
 				A7DB9A1C2758E159000C4BA2 /* Day2.swift in Sources */,
 				A7DB9A3D275D0E13000C4BA2 /* Day5.swift in Sources */,
+				A7DB9A3A275C48FA000C4BA2 /* Day4.swift in Sources */,
 				A7DB9A222758E159000C4BA2 /* main.swift in Sources */,
 				A7DB9A1E2758E159000C4BA2 /* Challenge.swift in Sources */,
 				A7DB9A27275A41C5000C4BA2 /* Day3.swift in Sources */,
@@ -232,6 +237,7 @@
 			files = (
 				A7DB9A1B2758E159000C4BA2 /* Day2.swift in Sources */,
 				A7DB9A3C275D0E13000C4BA2 /* Day5.swift in Sources */,
+				A7DB9A39275C48F9000C4BA2 /* Day4.swift in Sources */,
 				A7DB9A1F2758E159000C4BA2 /* main.swift in Sources */,
 				A7DB9A1D2758E159000C4BA2 /* Challenge.swift in Sources */,
 				A7DB9A26275A41C5000C4BA2 /* Day3.swift in Sources */,
